@@ -16,6 +16,9 @@ import {
   LOGOUT_USER
 } from './constants';
 
+var header = new Headers();
+header.append("Content-Type", "application/json");
+
 export function createUser(user) {
   const query = { "query":
     `mutation createNewUser {
@@ -36,7 +39,8 @@ export function createUser(user) {
 
   return (dispatch) => fetch(`${API_URL}/data/`, {
     method: 'POST',
-    body: JSON.stringify(query)
+    body: JSON.stringify(query),
+    headers: header
   })
   .then(response => response.json())
   .then(json => dispatch({
@@ -64,7 +68,8 @@ export function getUsers() {
 
   return (dispatch) => fetch(`${API_URL}/data/`, {
     method: 'POST',
-    body: JSON.stringify(query)
+    body: JSON.stringify(query),
+    headers: header
   })
   .then(response => response.json())
   .then(json => dispatch({
@@ -93,7 +98,8 @@ export function getUser(username) {
 
   return (dispatch) => fetch(`${API_URL}/data/`, {
     method: 'POST',
-    body: JSON.stringify(query)
+    body: JSON.stringify(query),
+    headers: header
   })
   .then(response => response.json())
   .then(json => dispatch({
@@ -127,7 +133,8 @@ export function updateUser(user) {
 
   return (dispatch) => fetch(`${API_URL}/data/`, {
     method: 'POST',
-    body: JSON.stringify(query)
+    body: JSON.stringify(query),
+    headers: header
   })
   .then(response => response.json())
   .then(payload => dispatch({payload, type: UPDATE_USER}))
@@ -152,7 +159,8 @@ export function deleteUser(token) {
 
   return (dispatch) => fetch(`${API_URL}/data/`, {
     method: 'POST',
-    body: JSON.stringify(query)
+    body: JSON.stringify(query),
+    headers: header
   })
   .then(response => response.json())
   .then(json => dispatch({
@@ -187,7 +195,8 @@ export function loginUser(user) {
 
     return fetch(`${API_URL}/data/`, {
       method: 'POST',
-      body: JSON.stringify(query)
+      body: JSON.stringify(query),
+      headers: header
     })
     .then(response => response.json())
     .then(json => _.isEmpty(json.errors) ? json : Promise.reject(json.errors[0]))

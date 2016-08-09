@@ -1,7 +1,4 @@
-![Serverless Architecture GraphQL Application Boilerplate](/readme_boilerplate_graphql.gif)
-
 # Serverless GraphQL
-[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
 This is a web application boilerplate for a remarkably efficent Graph API.  This Graph API is powered by a single AWS Lambda function containing GraphQL, accessible via one HTTP endpoint.  Through this endpoint, you can request any custom shape of data, across records stored in multiple DynamoDB tables, and GraphQL will return it.  The result is a very low *total cost of ownership* (i.e., least amount of code, administration, cost).
 
@@ -9,7 +6,7 @@ Users CRUD has been implemented, as well as authentication and authorization via
 
 For more information, please read the [**FAQ**](#faq) at the bottom, and be sure to enjoy! - serverless.com
 
-![Serverless GraphQL Architecture Application Boilerplate diagram](/serverless_graphql_diagram.png)
+
 
 ## Setup
 
@@ -18,7 +15,19 @@ If you haven't yet installed `serverless` on your machine, run:
 ```
 npm install -g serverless
 ```
-then install serverless-graphql by running:
+
+### Quick start for local dev
+
+- `npm install` at the root folder
+- Install [Docker](https://www.docker.com/)
+- Start docker with `docker-compose up`
+- New terminal, run `sls setup db -s dev -r ` to create tables in the local DynamoDB instance.
+- `cd back/api`, run `sls offline start` to start [the offline server](https://github.com/dherault/serverless-offline).
+- New terminal, `cd client/src`, `npm install` then `npm start`
+
+
+## Start fresh
+Install serverless-graphql by running:
 
 ```
 sls project install serverless-graphql
