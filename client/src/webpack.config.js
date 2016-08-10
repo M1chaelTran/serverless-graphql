@@ -28,7 +28,8 @@ module.exports = {
               "syntax-object-rest-spread",
 
               "transform-class-properties",
-              "transform-object-rest-spread"
+              "transform-object-rest-spread",
+              "babel-relay-plugin-loader"
             ]
           }
         )]

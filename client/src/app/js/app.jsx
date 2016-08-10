@@ -11,7 +11,7 @@ import routes from './routes';
 console.log(
   Relay.QL`
     query test {
-      User {
+      users {
         name
       }
     }
